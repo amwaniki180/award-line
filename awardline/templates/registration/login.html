@@ -1,97 +1,38 @@
-{%extends "registration/base.html"%} {% load bootstrap4%} {% block content %}
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="/static/registration/css/style.css">
-<link rel="stylesheet" href="/static/registration/css/font-awesome.min.css">
+{%extends "registration/base.html"%} {% load bootstrap3 %} {% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if form.errors %}
+            <p> Password or Username is incorrect </p>
+            {% endif %}
+            <div class="panel panel-default">
 
-
-
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title> AWWARDLINE/login</title>
-    <!-- Meta-Tags -->
-    <link rel="shortcut icon" href="/static/images/trophy.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="keywords">
-    <script>
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- //Meta-Tags -->
-
-    <!-- css files -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- //css files -->
-
-    <!-- google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- //google fonts -->
-
-</head>
-
-<body>
-
-    <div class="signupform">
-        <div class="container">
-            <!-- main content -->
-            <div class="agile_info">
-                <div class="w3l_form w3-hide-small w3-hide-medium">
-                    <div class="left_grid_info">
-                        <h1 class=" w3-padding" style="font-family: 'Pacifico', cursive; font-size:45px; padding-bottom:25px;">Welcome to Dee Awwardz</h1>
-                        <p>Donec dictum nisl nec mi lacinia, sed maximus tellus eleifend. Proin molestie cursus sapien ac eleifend.</p>
-
-                    </div>
+                <div class="panel-heading">
+                    <h3 class="text-center">Sign In</h3>
                 </div>
-                <div class="w3_info">
-                    <h2>Login to your Account</h2>
-                    <p>Enter your details to login.</p>
-                    {% if form.errors %}
-                    <p> Password or Username is incorrect </p>
-                    {% endif %}
-                    <div class="section">
+                <div class="panel-body">
 
-                        <div class="form-section">
-                            <div class="panel-body">
+                    <form action="/accounts/login/" method="post">
+                        {% csrf_token %} {% bootstrap_form form%}
 
-                                <form action="/accounts/login/" method="post">
-                                    {% csrf_token %} {% bootstrap_form form%}
-
-                                    <div class="form-group">
-                                        <input type="submit" class="button" value="Login">
-                                    </div>
-
-                                    <input type="hidden" name="next" value="{{next}}">
-
-                                </form>
-                                <p class="account">By clicking login, you agree to our <a href="#">Terms & Conditions!</a></p>
-                                <p class="account1">Dont have an account? <a href="/accounts/register">Register here</a></p>
-                            </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Login">
                         </div>
-                        <!-- //main content -->
-                    </div>
-                    <!-- footer -->
-                    <div class="footer">
 
-                    </div>
-                    <!-- footer -->
+                        <input type="hidden" name="next" value="{{next}}">
+
+                    </form>
+
                 </div>
 
-</body>
+            </div>
 
-</html>
+        </div>
+        <!-- empty div -->
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
 {% endblock %}
