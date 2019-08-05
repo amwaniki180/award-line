@@ -14,3 +14,31 @@ def index(request):
     projects = Project.objects.order_by('-date')
     profile = Profile.objects.order_by('-last_update')
     return render(request,'index.html',{"projects":projects,"profile":profile})
+
+@login_required(login_url='/accounts/login/')
+def project(request,project_id):
+    try:
+        project = Project.objects.get(id = project_id)
+
+    except DoesNotExist:
+        raise Http404()
+
+    comments = Review.get_comment(project_id)
+    latest_review_list=Review.objects.all().filter(project_id = project.id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.project = project
+            review.user = request.user
+            review.save()
+
+    else:
+        form = ReviewForm()
+
+       
+
+    return render(request, 'project.html', {"project": project,'form':form,'comments':comments,'latest_review_list':latest_review_list})
+
+
