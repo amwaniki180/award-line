@@ -31,16 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'awardline.apps.AwardlineConfig',
+    'awardline',
     'bootstrap4',
     'bootstrap3',
+    'django_forms_bootstrap',
+    'crispy_forms',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,15 +77,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'award.wsgi.application'
-
+AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'awardline',
+        'USER': 'antony',
+    'PASSWORD':'Dee',
     }
 }
 
@@ -108,13 +116,18 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
+
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+#login redirect
+LOGIN_REDIRECT_URL = "home"
+
 
 
 # Static files (CSS, JavaScript, Images)
