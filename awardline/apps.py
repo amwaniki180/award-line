@@ -1,5 +1,8 @@
-from django.apps import AppConfig
+from django.contrib import admin
+from .models import Project,Profile,Comments,Review
+# Register your models here.
 
-
-class AwardlineConfig(AppConfig):
-    name = 'awardline'
+admin.site.register(Project)
+admin.site.register(Profile)
+admin.site.register(Comments)
+admin.site.register(Review)
