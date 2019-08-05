@@ -21,4 +21,55 @@
     </a>
 </div>
 <h1>Queen Bee Machine </h1>
-{% endblock %}
+<div class="card-footer">
+    <p>Site by -<cite>{{project.user.username}}</cite>-</p>
+    <a>
+        <p class="more-click">See more</p>
+    </a>
+    <div class="more">
+        {% for profile in profiles%}
+        <p>Contact:<strong> {{profile.contact}}</strong></p>
+        {% endfor %}
+        <span class="rating">
+      <p class="text-center"><b>Ratings <img
+            src="https://images.theconversation.com/files/105003/original/image-20151209-3251-lyw71w.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
+            width="50px"></b></p>
+      <ul>
+        <p>Design <button class="btn btn-outline-info rate-score">0</button>
+          <div class="stars" data-rating="3">
+            <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+        <span class="star">&nbsp;</span>
+    </div>
+    </p>
+    <p>Usability <button class="btn btn-outline-info rate-score">0</button>
+        <div class="stars" data-rating="3">
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+        </div>
+    </p>
+    <p>Content <button class="btn btn-outline-info rate-score">0</button>
+        <div class="stars" data-rating="3">
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+        </div>
+    </p>
+    </ul>
+    </span>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+{% endblock %} Collapse
