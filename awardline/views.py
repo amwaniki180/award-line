@@ -41,4 +41,10 @@ def project(request,project_id):
 
     return render(request, 'project.html', {"project": project,'form':form,'comments':comments,'latest_review_list':latest_review_list})
 
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    user = request.user
+    #profile = Profile.objects.get(user_id=current_user.id)
+    projects = Project.objects.all().filter(poster_id=user.id)
+    return render(request, 'profile.html',{"user":user, "current_user":request.user,"projects":projects})
 
