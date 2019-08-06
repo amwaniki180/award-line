@@ -1,122 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Awardz .....</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="/static/images/trophy.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/animate.css">
-
-    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/static/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="/static/css/aos.css">
-
-    <link rel="stylesheet" href="/static/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="/static/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="/static/css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="/static/css/flaticon.css">
-    <link rel="stylesheet" href="/static/css/icomoon.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<style>
-    .navbar-default .navbar-toggle {
-        border-color: transparent;
-        /* Removes border color */
-        float: left;
-        /* Move navbar toggle to left */
-    }
-    
-    .navbar-default .navbar-toggle .icon-bar {
-        background-color: #f00;
-        /* Changes regular toggle color */
-    }
-    
-    .navbar-default .navbar-toggle .icon-bar:hover {
-        background-color: #fff;
-        /* Changes toggle color on hover */
-    }
-</style>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-</head>
-
-<body>
-    <nav id="colorlib-aside" class="w3-sidebar w3-bar-block  w3-animate-right w3-top w3-text-black w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0; background-color: rgba(0, 0, 0, 0.6);" id="mySidebar">
-        <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a>
-        <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">HOME</a> {% if user.is_authenticated %}
-        <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">LOGOUT</a>
-        <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">ACCOUNT</a>
-        <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">ADD IMAGE</a> {%else%}
-        <a href="/accounts/login" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">LOGIN</a> {%endif%}
-    </nav>
-
-    <!-- Top menu on small screens -->
-    <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-        <span class="w3-left w3-padding" style="font-family: 'Pacifico', cursive; font-size:25px"><a href="/"> awardline</a></span>
-
-        <span> <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a></span>
-        <span class="w3-right" style="padding-top:10px;padding-right:35px;padding-left:15px;"><a href=""><i class="fa fa-plus"></i> </a></span>
-        <form class="w3 center" style="margin-top:10px; margin-left:auto;margin-right:auto; width: 30%;" class="navbar-form" role="search" action="">
-
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Users" name="search" aria-label="Search">
-
-
-            </div>
-
-        </form>
-
-    </header>
-
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-    <div class="w3-display-container" class="img-responsive" style="margin-bottom:100px">
-
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
+    <a class="navbar-brand" href="/">AWARD_LINE/a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                    <span class="sr-only">(current)</span>
+                </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fab fa-instagram"></i> Instagram</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i> Profile </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+            <a class="dropdown-item" href="{url 'profile'}">My account</a>
+            <a class="dropdown-item" href="{url 'logout'}">Log out</a>
+        </div>
+    </li>
+    </ul>
     </div>
-    </nav>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</body>
-<script>
-    function Copy() {
-        //var Url = document.createElement("textarea");
-        urlCopied.innerHTML = window.location.href;
-        //Copied = Url.createTextRange();
-        //Copied.execCommand("Copy");
-        var copied = alert("You can copy link from textarea")
-    }
-
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-    }
-
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-    }
-
-    // Modal Image Gallery
-    function onClick(element) {
-        document.getElementById("img01").src = element.src;
-        document.getElementById("modal01").style.display = "block";
-        var captionText = document.getElementById("caption");
-        captionText.innerHTML = element.alt;
-    }
-</script>
-
-</html>
+</nav>
+<!--/.Navbar -->

@@ -91,10 +91,8 @@ class Project(models.Model):
        """
        self.delete()
 
-   
-
    def __str__(self):
-       return self.poster
+       return self.title
 
 
 
@@ -156,8 +154,7 @@ class Review(models.Model):
         return comments 
     
     def delete_review(self):
-
         self.delete()
 
     def __str__(self):
-        return self.project
+        return self.comment
